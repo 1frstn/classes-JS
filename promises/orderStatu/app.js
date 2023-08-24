@@ -40,7 +40,7 @@ const processPayment = (responseArray) => {
     console.log(total); 
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
-            let hasEnoughMoney = order.giftcardBalance >= total;
+            let hasEnoughMoney = order.giftcardBalance > total;
             if(hasEnoughMoney){
                 console.log(`Payment processed with giftcard. Generating shipping label.`);
                 let trackingNumber = generateTracinkgNumber();
