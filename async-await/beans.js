@@ -55,3 +55,35 @@ async function makeBeans (){
     console.log(dinner);
 }
 makeBeans();
+
+/* Cook beans */
+
+let randomSuccess = () =>{
+  return Math.random()>.5 ? true : false;
+}
+
+let cookBeanSuffle = () =>{
+  return new Promise((resolve,reject) =>{
+    console.log('Fingers crossed... Putting the Bean Souffle in the oven')
+    setTimeout(()=> randomSuccess() ? resolve('Bean Souffle') : reject('Dinner is ruined!'),1000)
+  })
+}
+
+const checkDinner = async () =>{
+   try {
+    let resolvedValue = await cookBeanSuffle();
+    console.log(resolvedValue);
+   } catch (error) {
+    console.log(error);
+   }
+}
+
+checkDinner();
+
+async function serveAgain(){
+  const resultArray = await Promise.all([asyncTask1(), asyncTask2(), asyncTask3(), asyncTask4()])
+  for (let i = 0; i < resultArray.length; i++) {
+    console.log(resultArray[i]);
+    
+  }
+}

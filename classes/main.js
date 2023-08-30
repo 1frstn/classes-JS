@@ -1,4 +1,4 @@
-import rada from './'
+
 
 class Dog{
     constructor(name){
